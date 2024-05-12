@@ -4,48 +4,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] CharacterController controller;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private float speed;
+    [SerializeField] private float gravity;
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundDistance;
+    [SerializeField] private LayerMask groundMask;
     Vector3 velocity;
     bool isGrounded;
-    public Transform ground;
-    public float distance=0.3f;
-    public float speed;
-    public float jumpHeight;
-    public float gravity;
-    public LayerMask mask;
-    private void Start()
-    {
-       
-    }
+
+
+
     private void Update()
     {
-        move();
-    }
-    public void move()
-    {
-        #region movement
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        controller.Move(move * speed * Time.deltaTime);
-        #endregion
-        #region Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            velocity.y += Mathf.Sqrt(jumpHeight * -3f * gravity);
-        }
-
-        #endregion
-        #region Gravity
-        isGrounded = Physics.CheckSphere(ground.position, distance, mask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y =0f;
+            velocity.y = -2f;
+        }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * speed * Time.deltaTime);
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
-        #endregion
-
     }
 }

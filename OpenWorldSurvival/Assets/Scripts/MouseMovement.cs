@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class MouseMovement : MonoBehaviour
 {
-    [Range(50, 500)] public float sens;
-    public Transform body;
-    float xRot = 0f;
+    // Start is called before the first frame update
+    public float mouseSsensitivity = 100;
+    float xRotation = 0f;
+    float yRotation = 0f;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private void Update()
     {
-        float rotX=Input.GetAxisRaw("Mouse X")*sens*Time.deltaTime;
-        float rotY=Input.GetAxisRaw("Mouse Y")*sens*Time.deltaTime;
-        xRot-=rotY;
-        xRot = Mathf.Clamp(xRot, -80f, 80f);
-        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
-       
-        body.Rotate(Vector3.up * rotX);
+        float mouseX = Input.GetAxis("Mouse X") * mouseSsensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSsensitivity * Time.deltaTime;
+        xRotation -= mouseY;
+        xRotation=Mathf.Clamp(xRotation,-45,45f);
+
+        yRotation += mouseX;
+
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
