@@ -936,6 +936,7 @@ GameObject:
   - component: {fileID: -2098339381159212853}
   - component: {fileID: 8675390026299918479}
   - component: {fileID: 305106435937649039}
+  - component: {fileID: -629815528131450660}
   m_Layer: 0
   m_Name: Rabbit 1
   m_TagString: Untagged
@@ -997,11 +998,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.50731134, z: 1}
+  m_Size: {x: 15, y: 20, z: 15}
   m_Center: {x: 0, y: 0.24634452, z: 0}
 --- !u!54 &-2098339381159212853
 Rigidbody:
@@ -1028,7 +1029,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &8675390026299918479
 MonoBehaviour:
@@ -1059,6 +1060,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: "tav\u015Fan"
+  playerInRange: 0
+--- !u!65 &-629815528131450660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618406060381832795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.7, z: 1}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &7814611523990355004
 GameObject:
   m_ObjectHideFlags: 0
