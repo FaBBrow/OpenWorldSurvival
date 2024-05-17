@@ -141,5 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: "Ta\u015F"
+  inventoryObject: {fileID: 3895141236434393662, guid: d329bf2b0cbb3214e80d86af9cbcf4ac, type: 3}
   playerInRange: 0
   onRaytoTake: 0

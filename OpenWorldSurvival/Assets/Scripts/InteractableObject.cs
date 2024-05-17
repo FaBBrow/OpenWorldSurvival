@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     public string ItemName;
-
+    public GameObject inventoryObject;
     public bool playerInRange;
     public bool onRaytoTake=false;
     public string GetItemName()
@@ -14,9 +14,14 @@ public class InteractableObject : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange&&SelectionManager.instance.onTargert&&onRaytoTake)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.instance.onTargert && onRaytoTake)
         {
-            Debug.Log("item added in inventory");
+            if (inventoryObject != null && !InventorySystem.instance.checkIfFull())
+            {
+                Debug.Log("sa");
+                InventorySystem.instance.addToInventory(inventoryObject);
+                Destroy(gameObject);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -7,7 +7,11 @@ public class InventorySystem : MonoBehaviour
  public static InventorySystem instance;
     public GameObject inventoryScreenUI;
     public bool isOpen;
-
+    public List<GameObject> slotList;
+    public List<string> itemList;
+    private GameObject itemToAdd;
+    private GameObject whatSlotToEquip;
+   
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -18,11 +22,23 @@ public class InventorySystem : MonoBehaviour
         {
             instance = this;
         }
+        populateTheSlots();
     }
     private void Start()
     {
         isOpen = false;
+        
 
+    }
+    public void populateTheSlots()
+    {
+        foreach(Transform Child in inventoryScreenUI.transform)
+        {
+            if (Child.CompareTag("Slot"))
+            {
+                slotList.Add(Child.gameObject);
+            }
+        }
     }
     private void Update()
     {
@@ -38,5 +54,49 @@ public class InventorySystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             isOpen = false;
         }
+    }
+    public void addToInventory(GameObject inventoyrobject)
+    {
+        
+
+       
+       
+            whatSlotToEquip = findNextEmptySlot();
+            itemToAdd = Instantiate(inventoyrobject, whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+            itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+       
+    }
+
+
+    public bool checkIfFull()
+    {
+       
+        foreach(GameObject slot in slotList)
+        {
+
+            if (slot.transform.childCount >0)
+            {
+               
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        return true;
+     
+    }
+    public GameObject findNextEmptySlot()
+    {
+        foreach(GameObject slot in slotList)
+        {
+            if (slot.transform.childCount <= 0)
+            {
+                return slot;
+            }
+        }
+        return new GameObject();
     }
 }
