@@ -15,13 +15,19 @@ public class MouseMovement : MonoBehaviour
     }
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSsensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSsensitivity * Time.deltaTime;
-        xRotation -= mouseY;
-        xRotation=Mathf.Clamp(xRotation,-90,90f);
+        if (!InventorySystem.instance.isOpen)
+        {
 
-        yRotation += mouseX;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSsensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSsensitivity * Time.deltaTime;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            yRotation += mouseX;
+
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+        }
+       
     }
 }
