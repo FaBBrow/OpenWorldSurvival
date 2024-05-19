@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
     public GameObject inventoryScreenUI;
     public bool isOpen;
     public List<GameObject> slotList;
-    public List<string> itemList;
+    public List<GameObject> itemList;
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
    
@@ -64,6 +64,8 @@ public class InventorySystem : MonoBehaviour
             whatSlotToEquip = findNextEmptySlot();
             itemToAdd = Instantiate(inventoyrobject, whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
             itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+            itemList.Add(inventoyrobject);
+             CraftingSystem.instance.updateAllUI();
        
     }
 
