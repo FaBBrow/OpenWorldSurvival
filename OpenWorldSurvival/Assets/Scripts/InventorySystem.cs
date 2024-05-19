@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
@@ -57,17 +58,47 @@ public class InventorySystem : MonoBehaviour
     }
     public void addToInventory(GameObject inventoyrobject)
     {
+
+
         
 
-       
-       
             whatSlotToEquip = findNextEmptySlot();
-            itemToAdd = Instantiate(inventoyrobject, whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
-            itemToAdd.transform.SetParent(whatSlotToEquip.transform);
-            itemList.Add(inventoyrobject);
-             CraftingSystem.instance.updateAllUI();
        
+        itemToAdd = Instantiate(inventoyrobject, whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+            itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+            itemList.Add(itemToAdd);
+        CraftingSystem.instance.updateAllUI();
+
     }
+  
+
+    public void deleteFromInventory(GameObject deleteItem ,int value)
+    {
+        for (int i = itemList.Count - 1; i >= 0; i--)
+        {
+            if (itemList[i].GetComponent<Image>().sprite == deleteItem.GetComponent<Image>().sprite)
+            {
+                value--;
+
+                GameObject itemToRemove = itemList[i];
+                itemList.RemoveAt(i); 
+                Destroy(itemToRemove); 
+
+                if (value == 0)
+                {
+                    break;
+                }
+            }
+        }
+
+       
+        CraftingSystem.instance.updateAllUI();
+    }
+
+
+
+
+
 
 
     public bool checkIfFull()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CraftingSlot : MonoBehaviour
 {
+    [SerializeField] private GameObject craftItem;
     [SerializeField] private List<TextMeshProUGUI> requirementsTextUI;
     [SerializeField] private GameObject craftButtonUI;
     [SerializeField] private List<GameObject> requirementsItems;
@@ -34,14 +35,37 @@ public class CraftingSlot : MonoBehaviour
         {
             craftButtonUI.SetActive(true);
         }
+        else
+        {
+            craftButtonUI.SetActive(false); 
+        }
 
     }
+    public void Craft()
+    {
+        if (!InventorySystem.instance.checkIfFull())
+        {
+            for(int i = 0; i < requirementsItems.Count; i++)
+            {
+                InventorySystem.instance.deleteFromInventory(requirementsItems[i],values[i]);
+            }
+
+        InventorySystem.instance.addToInventory(craftItem);
+
+        }
+    }
+
+
     public int takeRequire(GameObject require)
     {
          int counter = 0;
-        foreach(GameObject items in InventorySystem.instance.itemList)
+        if (InventorySystem.instance.itemList == null)
         {
-            if(items.name == require.name)
+            return 0;
+        }
+        for(int i = 0; i < InventorySystem.instance.itemList.Count; i++)
+        {
+            if (InventorySystem.instance.itemList[i].GetComponent<Image>().sprite == require.gameObject.GetComponent<Image>().sprite)
             {
                 counter++;
             }
