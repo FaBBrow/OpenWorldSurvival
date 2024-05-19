@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 604686478880021524}
   - component: {fileID: 4889303204318604131}
   - component: {fileID: 4495088997885257924}
+  - component: {fileID: -4187924006244434692}
+  - component: {fileID: 5308523500152210888}
   m_Layer: 5
   m_Name: AXE_INV
   m_TagString: Untagged
@@ -75,3 +77,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-4187924006244434692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403094445447977831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ecd0fd672d99d42987608874890ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &5308523500152210888
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403094445447977831}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
