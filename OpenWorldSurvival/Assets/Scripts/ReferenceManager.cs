@@ -1,27 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReferenceManager : MonoBehaviour
 {
     public static ReferenceManager instance;
     [SerializeField] private Canvas canvas;
+
     private void Awake()
     {
         instance = this;
     }
-    void Start()
+
+    private void Start()
     {
-        
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
     }
 
     public Canvas getCamvas()
     {
         return canvas;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

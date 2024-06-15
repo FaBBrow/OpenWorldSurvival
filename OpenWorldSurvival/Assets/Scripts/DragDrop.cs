@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public static GameObject itemBeingDragged;
 
     private Canvas canvas;
-    private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-
-    public static GameObject itemBeingDragged;
-    Vector3 startPosition;
-    Transform startParent;
+    private RectTransform rectTransform;
+    private Transform startParent;
+    private Vector3 startPosition;
 
 
     private void Awake()
     {
         canvas = ReferenceManager.instance.getCamvas();
         rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();  
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
 
@@ -47,6 +43,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             transform.position = startPosition;
             transform.SetParent(startParent);
         }
+
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }

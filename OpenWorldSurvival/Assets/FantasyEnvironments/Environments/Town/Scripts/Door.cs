@@ -1,29 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Door : MonoBehaviour {
-	public Animator anim;
+public class Door : MonoBehaviour
+{
+    public Animator anim;
 
-	// Use this for initialization
-	void Start () {
-		anim = GetComponent<Animator> ();
-	}
+    // Use this for initialization
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
-	void OnTriggerEnter (Collider other) {
-		anim.SetBool ("DoorOpen", true);
-		anim.SetBool ("DoorClose", false);
+    // Update is called once per frame
+    private void Update()
+    {
+    }
 
-	}
+    private void OnTriggerEnter(Collider other)
+    {
+        anim.SetBool("DoorOpen", true);
+        anim.SetBool("DoorClose", false);
+    }
 
-	void OnTriggerExit (Collider other) {
-		anim.SetBool ("DoorOpen", false);
-		anim.SetBool ("DoorClose", true);
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerExit(Collider other)
+    {
+        anim.SetBool("DoorOpen", false);
+        anim.SetBool("DoorClose", true);
+    }
 }

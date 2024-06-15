@@ -1,26 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CraftingSystem : MonoBehaviour
 {
-    [SerializeField] GameObject CraftingSystemScreenUI;
     public static CraftingSystem instance;
-    [SerializeField] List<GameObject> craftingSlotSlist;
-    private bool isopen=false;
-    [SerializeField] GameObject toolsScreenUI;
+    [SerializeField] private GameObject CraftingSystemScreenUI;
+    [SerializeField] private List<GameObject> craftingSlotSlist;
+    [SerializeField] private GameObject toolsScreenUI;
+    private bool isopen;
+
     private void Awake()
     {
         instance = this;
     }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.T) && !isopen)
         {
             CraftingSystemScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            isopen =true;
+            isopen = true;
         }
         else if (Input.GetKeyUp(KeyCode.T) && isopen)
         {
@@ -29,21 +29,19 @@ public class CraftingSystem : MonoBehaviour
             isopen = false;
         }
     }
+
     public void updateAllUI()
     {
-        foreach(GameObject slot in craftingSlotSlist)
-        {
-            slot.GetComponent<CraftingSlot>().UpdateUI();
-        }
+        foreach (var slot in craftingSlotSlist) slot.GetComponent<CraftingSlot>().UpdateUI();
     }
+
     public void openTools()
     {
-       
         toolsScreenUI.SetActive(true);
     }
+
     public void goBack()
     {
         toolsScreenUI.SetActive(false);
     }
-    
 }
