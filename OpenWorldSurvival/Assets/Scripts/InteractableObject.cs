@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
@@ -7,12 +8,14 @@ public class InteractableObject : MonoBehaviour
     public bool playerInRange;
     public bool onRaytoTake;
 
+   
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.instance.onTargert && onRaytoTake)
             if (inventoryObject != null && !InventorySystem.instance.checkIfFull())
             {
-                InventorySystem.instance.addToInventory(inventoryObject);
+               InventorySystem.instance.addToInventory(inventoryObject, ItemName );
                 Destroy(gameObject);
             }
     }

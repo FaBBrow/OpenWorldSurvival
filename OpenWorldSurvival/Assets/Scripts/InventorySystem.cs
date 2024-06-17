@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
+    public static Action<GameObject, string> OnItemAdded;
+    public static Action<GameObject> OnUIChange;
     public static InventorySystem instance;
     public GameObject inventoryScreenUI;
     public bool isOpen;
@@ -49,7 +52,7 @@ public class InventorySystem : MonoBehaviour
                 slotList.Add(Child.gameObject);
     }
 
-    public void addToInventory(GameObject inventoyrobject)
+    public void addToInventory(GameObject inventoyrobject, string takenitem)
     {
         whatSlotToEquip = findNextEmptySlot();
 
@@ -57,7 +60,9 @@ public class InventorySystem : MonoBehaviour
             whatSlotToEquip.transform.rotation);
         itemToAdd.transform.SetParent(whatSlotToEquip.transform);
         itemList.Add(itemToAdd);
-        CraftingSystem.instance.updateAllUI();
+        OnItemAdded?.Invoke(inventoyrobject, takenitem);
+        OnUIChange?.Invoke(inventoyrobject);
+        
     }
 
 
@@ -70,13 +75,14 @@ public class InventorySystem : MonoBehaviour
 
                 var itemToRemove = itemList[i];
                 itemList.RemoveAt(i);
+                OnUIChange?.Invoke(deleteItem);
                 Destroy(itemToRemove);
 
                 if (value == 0) break;
             }
 
 
-        CraftingSystem.instance.updateAllUI();
+        
     }
 
 

@@ -30,10 +30,7 @@ public class CraftingSystem : MonoBehaviour
         }
     }
 
-    public void updateAllUI()
-    {
-        foreach (var slot in craftingSlotSlist) slot.GetComponent<CraftingSlot>().UpdateUI();
-    }
+ 
 
     public void openTools()
     {

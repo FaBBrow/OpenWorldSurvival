@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CraftingSlot : MonoBehaviour
 {
+    [SerializeField] private string craftingItemText;
     [SerializeField] private GameObject craftItem;
     [SerializeField] private List<TextMeshProUGUI> requirementsTextUI;
     [SerializeField] private GameObject craftButtonUI;
@@ -15,10 +18,13 @@ public class CraftingSlot : MonoBehaviour
     private void Start()
     {
         UpdateUI();
+        InventorySystem.OnUIChange += checkUIChangeAvailable;
     }
+
 
     public void UpdateUI()
     {
+        
         var itemcounter = 0;
         for (var i = 0; i < requirementsTextUI.Count; i++)
         {
@@ -26,13 +32,26 @@ public class CraftingSlot : MonoBehaviour
 
 
             requirementsTextUI[i].text = $"{values[i]} {texts[i]} [{requirevalue}]";
-            if (requirevalue == values[i]) itemcounter++;
+            if (requirevalue >= values[i]) itemcounter++;
         }
 
         if (itemcounter == requirementsTextUI.Count)
             craftButtonUI.SetActive(true);
         else
             craftButtonUI.SetActive(false);
+    }
+    public void checkUIChangeAvailable(GameObject a)
+    {
+        int index = 0;
+        foreach (var VARIABLE in requirementsItems)
+        {
+            if (VARIABLE == a) index++;
+        }
+        if (index == 0) return;
+        else
+        {
+            UpdateUI();
+        }
     }
 
     public void Craft()
@@ -42,7 +61,7 @@ public class CraftingSlot : MonoBehaviour
             for (var i = 0; i < requirementsItems.Count; i++)
                 InventorySystem.instance.deleteFromInventory(requirementsItems[i], values[i]);
 
-            InventorySystem.instance.addToInventory(craftItem);
+            InventorySystem.instance.addToInventory(craftItem,craftingItemText);
         }
     }
 
