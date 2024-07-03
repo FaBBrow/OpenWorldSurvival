@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2872002196479455360}
   - component: {fileID: 3024212433220746463}
   - component: {fileID: 2549183247208081652}
+  - component: {fileID: 4024136714199055078}
   m_Layer: 5
   m_Name: Apple_INV
   m_TagString: Untagged
@@ -101,3 +102,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ecd0fd672d99d42987608874890ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4024136714199055078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243848572191592180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de90ac3a17e2ef44a653c6e9401134e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 1
+  foodValue: 20
+  drinkValue: 0
+  healthValue: 0
+  itemName: Apple

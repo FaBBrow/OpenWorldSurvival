@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6557342848547944057}
   - component: {fileID: -7729890474300988064}
   - component: {fileID: -4979505025975193794}
+  - component: {fileID: 6056915151878252069}
   m_Layer: 5
   m_Name: Stone_INV
   m_TagString: Untagged
@@ -101,3 +102,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6056915151878252069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895141236434393662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de90ac3a17e2ef44a653c6e9401134e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 0
+  foodValue: 0
+  drinkValue: 0
+  healthValue: 0
+  itemName: Stone

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4495088997885257924}
   - component: {fileID: -4187924006244434692}
   - component: {fileID: 5308523500152210888}
+  - component: {fileID: 4494759202512788230}
   m_Layer: 5
   m_Name: AXE_INV
   m_TagString: Untagged
@@ -101,3 +102,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4494759202512788230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403094445447977831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de90ac3a17e2ef44a653c6e9401134e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 0
+  foodValue: 0
+  drinkValue: 0
+  healthValue: 0
+  itemName: Axe
