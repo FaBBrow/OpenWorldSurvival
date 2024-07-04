@@ -21,7 +21,7 @@ public class InventorySystem : MonoBehaviour
             Destroy(gameObject);
         else
             instance = this;
-        populateTheSlots();
+
     }
 
     private void Start()
@@ -45,12 +45,6 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void populateTheSlots()
-    {
-        foreach (Transform Child in inventoryScreenUI.transform)
-            if (Child.CompareTag("Slot"))
-                slotList.Add(Child.gameObject);
-    }
 
     public void addToInventory(GameObject inventoyrobject, string takenitem)
     {

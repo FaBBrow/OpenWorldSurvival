@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 
 public class InventoryItem : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 {
@@ -11,6 +13,7 @@ public class InventoryItem : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [SerializeField] private int drinkValue;
     [SerializeField] private int healthValue;
     [SerializeField] private string itemName;
+    public bool isSelected;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right && consumable)
@@ -27,11 +30,23 @@ public class InventoryItem : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
             InventorySystem.instance.deleteFromInventory(gameObject,1);
             Takenİnfo.instance.onitemDeleted(gameObject,itemName);
         }
-       
+        
     }
-
+    
     public void OnPointerUp(PointerEventData eventData)
     {
         
+    }
+
+    private void Update()
+    {
+        if (isSelected)
+        {
+            gameObject.GetComponent<DragDrop>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<DragDrop>().enabled = true;
+        }
     }
 }
