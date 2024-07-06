@@ -14,6 +14,15 @@ public class InventoryItem : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     [SerializeField] private int healthValue;
     [SerializeField] private string itemName;
     public bool isSelected;
+    [SerializeField] private GameObject _gameModel;
+    [SerializeField] public Vector3 modelposition;
+    [SerializeField] public Vector3 rotation;
+    public GameObject GameModel
+    {
+        get => _gameModel;
+        set => _gameModel = value;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right && consumable)

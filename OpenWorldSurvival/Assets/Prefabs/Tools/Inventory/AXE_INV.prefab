@@ -119,3 +119,7 @@ MonoBehaviour:
   drinkValue: 0
   healthValue: 0
   itemName: Axe
+  isSelected: 0
+  _gameModel: {fileID: 4985170960393846465, guid: 8d8aa59a2e09f7d4395de84144542f5e, type: 3}
+  modelposition: {x: 0.5, y: 0.2, z: 0.8783684}
+  rotation: {x: -10, y: -90, z: 90}

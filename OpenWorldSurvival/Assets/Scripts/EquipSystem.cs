@@ -9,6 +9,7 @@ public class EquipSystem : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> numberList;
     public int selectedNumber = -1;
     public GameObject selectedItem;
+    [SerializeField] private GameObject HandHolder;
 
     void Update()
     {
@@ -64,12 +65,29 @@ public class EquipSystem : MonoBehaviour
         if (selectedItem != null)
         {
             selectedItem.GetComponent<InventoryItem>().isSelected = false;
+            if (HandHolder.transform.childCount > 0)
+            {
+                Destroy(HandHolder.transform.GetChild(0).gameObject);
+            }
+            
         }
         if (quickSlotList[number].transform.childCount!=0)
         {
             selectedItem= quickSlotList[number].transform.GetChild(0).gameObject;
             selectedItem.GetComponent<InventoryItem>().isSelected = true;
+            GetModel(selectedItem);
         }
         
     }
+
+    public void GetModel(GameObject selecteditem)
+    {
+        GameObject selectedModel = selecteditem.GetComponent<InventoryItem>().GameModel;
+        InventoryItem modelınventoryıtem = selecteditem.GetComponent< InventoryItem>();
+        GameObject itemModel = Instantiate(selectedModel, HandHolder.transform.position, Quaternion.Euler(modelınventoryıtem.rotation));
+        itemModel.transform.SetParent(HandHolder.transform);
+        itemModel.transform.localPosition = modelınventoryıtem.modelposition;
+
+    }
 }
+    
