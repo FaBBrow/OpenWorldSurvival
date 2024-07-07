@@ -87,6 +87,7 @@ public class EquipSystem : MonoBehaviour
         GameObject itemModel = Instantiate(selectedModel, HandHolder.transform.position, Quaternion.Euler(modelınventoryıtem.rotation));
         itemModel.transform.SetParent(HandHolder.transform);
         itemModel.transform.localPosition = modelınventoryıtem.modelposition;
+        itemModel.transform.localRotation = Quaternion.Euler(modelınventoryıtem.rotation);
 
     }
 }

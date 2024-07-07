@@ -6,6 +6,8 @@ public class MouseMovement : MonoBehaviour
     public float mouseSsensitivity = 100;
     private float xRotation;
     private float yRotation;
+    [SerializeField] private GameObject camera;
+    private float cyclinderRotation;
 
     private void Start()
     {
@@ -22,8 +24,10 @@ public class MouseMovement : MonoBehaviour
             xRotation = Mathf.Clamp(xRotation, -90, 90f);
 
             yRotation += mouseX;
-
-            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            cyclinderRotation = xRotation;
+            cyclinderRotation = Mathf.Clamp(cyclinderRotation, -30, 30);
+            transform.localRotation = Quaternion.Euler(cyclinderRotation, yRotation, 0f);
+            camera.transform.rotation=Quaternion.Euler(xRotation,yRotation,0f);
         }
     }
 }
