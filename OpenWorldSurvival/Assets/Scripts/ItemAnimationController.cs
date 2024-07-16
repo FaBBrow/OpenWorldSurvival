@@ -24,4 +24,8 @@ public class ItemAnimationController : MonoBehaviour
             itemAnimator.SetFloat("Blend",0);
         }
     }
+    public void selectedTreeDamage(){
+        SelectionManager.instance.treeDamage();
+    }
+    
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SelectionManager : MonoBehaviour
     public bool onTargert;
     private TextMeshProUGUI interaction_text;
     private InteractableObject target;
+    public GameObject selectedTree;
 
     private void Start()
     {
@@ -24,6 +26,28 @@ public class SelectionManager : MonoBehaviour
         {
             var selectionTransform = hit.transform;
             var interactable = selectionTransform.GetComponent<InteractableObject>();
+            var chopableTree = selectionTransform.GetComponent<ChoppableTree>();
+
+            if (chopableTree &&chopableTree.playerInRange)
+            {
+                chopableTree.canBeChopped = true;
+                selectedTree = chopableTree.gameObject;
+                onTargert = true;
+            }
+            else
+            {
+                if (selectedTree != null)
+                {
+                    selectedTree.gameObject.GetComponent<ChoppableTree>().canBeChopped = false;
+                    selectedTree = null;
+                    
+                }
+
+                {
+                    onTargert = false;
+                }
+            }
+            
             if (interactable && interactable.playerInRange)
             {
                 target = interactable;
@@ -45,5 +69,15 @@ public class SelectionManager : MonoBehaviour
             onTargert = false;
             interaction_Info_UI.SetActive(false);
         }
+    }
+
+    public void treeDamage()
+    {
+        if (selectedTree)
+        {
+            selectedTree.GetComponent<ChoppableTree>().TreeHealth -= 1;
+            selectedTree.transform.DOShakePosition(0.1f, .05f, 1);
+        }
+        
     }
 }
