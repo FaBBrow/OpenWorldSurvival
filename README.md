@@ -27,3 +27,4 @@ Pattern and Technologies used in the project:
 *   Event/Unity Events
 *   Observer Pattern
 *   S.O.L.I.D Principles
+*   DOTween
