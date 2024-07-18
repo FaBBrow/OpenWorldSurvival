@@ -15,6 +15,7 @@ Here're some of the project's best features:
 *   Inventory System
 *   Crafting System
 *   Beatifull Landscape
+*   Better Post Processing
 
   
   
@@ -26,3 +27,4 @@ Pattern and Technologies used in the project:
 *   Event/Unity Events
 *   Observer Pattern
 *   S.O.L.I.D Principles
+*   DOTween
