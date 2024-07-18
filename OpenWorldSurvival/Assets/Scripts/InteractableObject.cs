@@ -13,7 +13,7 @@ public class InteractableObject : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.instance.onTargert && onRaytoTake)
-            if (inventoryObject != null && !InventorySystem.instance.checkIfFull())
+            if (inventoryObject != null && !InventorySystem.instance.checkIfFull(1))
             {
                InventorySystem.instance.addToInventory(inventoryObject, ItemName );
                 Destroy(gameObject);

@@ -14,6 +14,7 @@ public class CraftingSlot : MonoBehaviour
     [SerializeField] private List<GameObject> requirementsItems;
     [SerializeField] private List<string> texts;
     [SerializeField] private List<int> values;
+    [SerializeField] private int numberOfCreate;
 
     private void Start()
     {
@@ -56,12 +57,16 @@ public class CraftingSlot : MonoBehaviour
 
     public void Craft()
     {
-        if (!InventorySystem.instance.checkIfFull())
+        if (!InventorySystem.instance.checkIfFull(numberOfCreate))
         {
             for (var i = 0; i < requirementsItems.Count; i++)
                 InventorySystem.instance.deleteFromInventory(requirementsItems[i], values[i]);
 
-            InventorySystem.instance.addToInventory(craftItem,craftingItemText);
+            
+            for (int i = 0; i < numberOfCreate; i++)
+            {
+                InventorySystem.instance.addToInventory(craftItem,craftingItemText);
+            }
         }
     }
 

@@ -80,18 +80,29 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    public bool checkIfFull()
+    public bool checkIfFull(int slotValue )
     {
+        int value = 0;
         foreach (var slot in slotList)
             if (slot.transform.childCount > 0)
             {
+               
             }
             else
             {
-                return false;
+                value++;
             }
 
-        return true;
+        if (value==slotValue)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+       
     }
 
     public GameObject findNextEmptySlot()
