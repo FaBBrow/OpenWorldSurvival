@@ -144,3 +144,4 @@ MonoBehaviour:
   inventoryObject: {fileID: 2243848572191592180, guid: e06c00af34d2a234ba631967ea881f72, type: 3}
   playerInRange: 0
   onRaytoTake: 0
+  TakeItemSound: {fileID: 8300000, guid: ddebee5281facad42bcf8c0557a1863e, type: 3}

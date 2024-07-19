@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ecd0fd672d99d42987608874890ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DragSound: {fileID: 8300000, guid: 42da7deacf2fb0c42a4fa208008757bf, type: 3}
+  DropSound: {fileID: 8300000, guid: 8eb91650e6188f44192dc121a8bcbf12, type: 3}
 --- !u!114 &3447256761894698824
 MonoBehaviour:
   m_ObjectHideFlags: 0

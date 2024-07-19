@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class SlotItem : MonoBehaviour, IDropHandler
 {
+    
     public GameObject item
     {
         get
@@ -18,6 +19,7 @@ public class SlotItem : MonoBehaviour, IDropHandler
         {
             DragDrop.itemBeingDragged.transform.SetParent(transform);
             DragDrop.itemBeingDragged.transform.localPosition = new Vector2(0, 0);
+            
         }
     }
 }

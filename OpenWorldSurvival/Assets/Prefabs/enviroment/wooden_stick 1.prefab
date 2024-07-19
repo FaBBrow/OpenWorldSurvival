@@ -99,6 +99,7 @@ MonoBehaviour:
   inventoryObject: {fileID: 536373674170942016, guid: 5d79f371ace66304e8b4616f02f428f0, type: 3}
   playerInRange: 0
   onRaytoTake: 0
+  TakeItemSound: {fileID: 8300000, guid: ddebee5281facad42bcf8c0557a1863e, type: 3}
 --- !u!65 &3598867141386960989
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ public class InteractableObject : MonoBehaviour
     public GameObject inventoryObject;
     public bool playerInRange;
     public bool onRaytoTake;
-
+    [SerializeField] private AudioClip TakeItemSound;
+    private GameObject player;
    
 
     private void Update()
@@ -17,6 +18,7 @@ public class InteractableObject : MonoBehaviour
             {
                InventorySystem.instance.addToInventory(inventoryObject, ItemName );
                 Destroy(gameObject);
+                PlayerAudioManager.instance.TakeAudioClip(TakeItemSound);
             }
     }
 

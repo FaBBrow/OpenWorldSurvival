@@ -42,6 +42,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8811060739353008984}
     m_Modifications:
+    - target: {fileID: 64938815667796811, guid: cd70b79685ffed845821d7e266d70200, type: 3}
+      propertyPath: TakeItemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ddebee5281facad42bcf8c0557a1863e, type: 3}
     - target: {fileID: 359422014622097564, guid: cd70b79685ffed845821d7e266d70200, type: 3}
       propertyPath: m_Name
       value: Log
@@ -104,6 +108,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8811060739353008984}
     m_Modifications:
+    - target: {fileID: 64938815667796811, guid: cd70b79685ffed845821d7e266d70200, type: 3}
+      propertyPath: TakeItemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ddebee5281facad42bcf8c0557a1863e, type: 3}
     - target: {fileID: 359422014622097564, guid: cd70b79685ffed845821d7e266d70200, type: 3}
       propertyPath: m_Name
       value: Log

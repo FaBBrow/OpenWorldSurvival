@@ -15,7 +15,7 @@ public class CraftingSlot : MonoBehaviour
     [SerializeField] private List<string> texts;
     [SerializeField] private List<int> values;
     [SerializeField] private int numberOfCreate;
-
+    [SerializeField] private AudioClip CraftSound;
     private void Start()
     {
         UpdateUI();
@@ -62,7 +62,7 @@ public class CraftingSlot : MonoBehaviour
             for (var i = 0; i < requirementsItems.Count; i++)
                 InventorySystem.instance.deleteFromInventory(requirementsItems[i], values[i]);
 
-            
+            PlayerAudioManager.instance.TakeAudioClip(CraftSound);
             for (int i = 0; i < numberOfCreate; i++)
             {
                 InventorySystem.instance.addToInventory(craftItem,craftingItemText);
