@@ -22,13 +22,13 @@ public class SelectionManager : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit,5))
         {
             var selectionTransform = hit.transform;
             var interactable = selectionTransform.GetComponent<InteractableObject>();
             var chopableTree = selectionTransform.GetComponent<ChoppableTree>();
 
-            if (chopableTree &&chopableTree.playerInRange)
+            if (chopableTree )
             {
                 chopableTree.canBeChopped = true;
                 selectedTree = chopableTree.gameObject;
@@ -48,7 +48,7 @@ public class SelectionManager : MonoBehaviour
                 }
             }
             
-            if (interactable && interactable.playerInRange)
+            if (interactable )
             {
                 target = interactable;
                 target.onRaytoTake = true;

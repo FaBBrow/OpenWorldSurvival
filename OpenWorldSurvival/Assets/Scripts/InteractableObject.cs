@@ -13,7 +13,7 @@ public class InteractableObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.instance.onTargert && onRaytoTake)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && SelectionManager.instance.onTargert && onRaytoTake)
             if (inventoryObject != null && !InventorySystem.instance.checkIfFull(1))
             {
                InventorySystem.instance.addToInventory(inventoryObject, ItemName );
@@ -22,15 +22,7 @@ public class InteractableObject : MonoBehaviour
             }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) playerInRange = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player")) playerInRange = false;
-    }
+   
 
     public string GetItemName()
     {
