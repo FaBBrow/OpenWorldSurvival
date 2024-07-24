@@ -6,10 +6,17 @@ using UnityEngine;
 public class ItemAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator itemAnimator;
-
+    [SerializeField] private AudioClip ItemSound;
+    [SerializeField] private AudioSource ItemAudioSource;
     private void Awake()
     {
         itemAnimator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        ItemAudioSource = GetComponent<AudioSource>();
+        ItemAudioSource.clip = ItemSound;
     }
 
     void Update()
@@ -27,5 +34,11 @@ public class ItemAnimationController : MonoBehaviour
     public void selectedTreeDamage(){
         SelectionManager.instance.treeDamage();
     }
+
+    public void PlayAudio()
+    {
+        ItemAudioSource.Play();
+    }
+    
     
 }

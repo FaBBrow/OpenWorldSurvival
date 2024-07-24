@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     private bool isGrounded;
     private Vector3 velocity;
+    [SerializeField] private AudioSource GrassWalkingSound;
 
 
     private void Update()
@@ -24,5 +25,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+
+        if (x!=0||z!=0 && isGrounded)
+        {
+            if (!GrassWalkingSound.isPlaying)
+            {
+                GrassWalkingSound.Play();
+                GrassWalkingSound.loop = true;
+            }    
+            
+        }
+        else
+        {
+            GrassWalkingSound.Stop();
+        }
+        
     }
 }

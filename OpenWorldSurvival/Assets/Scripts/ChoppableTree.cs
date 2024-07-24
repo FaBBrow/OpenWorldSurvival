@@ -10,8 +10,11 @@ public class ChoppableTree : MonoBehaviour
  private int _treeHealth=3;
  private GameObject treechoppable;
 
+
+
  private void Start()
  {
+  
   treechoppable = gameObject.transform.GetChild(0).gameObject;
  }
 
@@ -32,6 +35,8 @@ public class ChoppableTree : MonoBehaviour
    }
   
  }
+
+
  
 
 }

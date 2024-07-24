@@ -75,6 +75,7 @@ public class SelectionManager : MonoBehaviour
     {
         if (selectedTree)
         {
+            selectedTree.GetComponent<AudioSource>().Play();
             selectedTree.GetComponent<ChoppableTree>().TreeHealth -= 1;
             selectedTree.transform.DOShakePosition(0.1f, .05f, 1);
         }
