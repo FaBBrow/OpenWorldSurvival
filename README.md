@@ -36,10 +36,10 @@ Follow these steps to run the project on your machine:
    git clone https://github.com/FaBBrow/OpenWorldSurvival.git
 
   
-  Restore Git LFS Files:Git LFS used in this project make sure Git LFS is installed on your system. Use the following commands to ensure all files are correctly downloaded:
-  ```bash
-git lfs install
-git lfs pull
-git lfs checkout
+2. **Restore Git LFS Files:Git LFS used in this project make sure Git LFS is installed on your system. Use the following commands to ensure all files are correctly downloaded**
+    ```bash
+   git lfs install
+   git lfs pull
+   git lfs checkout
    
 
