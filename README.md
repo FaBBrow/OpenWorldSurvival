@@ -2,29 +2,44 @@
 
 <p align="center"><img src="https://socialify.git.ci/FaBBrow/OpenWorldSurvival/image?font=Raleway&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Charlie%20Brown&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
-<p id="description">I try to develop my unity 3D skill so this is the my procces day one day i develop this project</p>
+<p id="description">I try to develop my Unity 3D skill so this is my process. Day by day, I develop this project.</p>
 
-  
-  
 <h2>🧐 Features</h2>
 
-Here're some of the project's best features:
+Here are some of the project's best features:
 
 *   Dynamic UI
 *   Good Optimization
 *   Inventory System
 *   Crafting System
-*   Beatifull Landscape
-*   Better Post Processing
+*   Beautiful Landscape
+*   Advanced Post-Processing Effects
 
-  
-  
-<h2>💻Code Skills</h2>
+<h2>💻 Code Skills</h2>
 
-Pattern and Technologies used in the project:
+Patterns and technologies used in the project:
 
 *   Singleton Pattern
-*   Event/Unity Events
+*   Event System / Unity Events
 *   Observer Pattern
 *   S.O.L.I.D Principles
-*   DOTween
+
+---
+
+<h2>🚀 How to Run the Project</h2>
+
+Follow these steps to run the project on your machine:
+
+1. **Clone the Repository:**
+   Open a terminal and clone the repository using the following command:
+   ```bash
+   git clone https://github.com/FaBBrow/OpenWorldSurvival.git
+
+  
+  Restore Git LFS Files:Git LFS used in this project make sure Git LFS is installed on your system. Use the following commands to ensure all files are correctly downloaded:
+  ```bash
+git lfs install
+git lfs pull
+git lfs checkout
+   
+
